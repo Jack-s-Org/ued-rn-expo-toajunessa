@@ -35,7 +35,7 @@ export default function AppDrawer({ navigation, children }) {
         );
       }}
     >
-      <SafeAreaInsetsContext.Consumer>
+      {/* <SafeAreaInsetsContext.Consumer>
         {(insets) => (
           <TouchableOpacity
             onPress={() => {
@@ -52,7 +52,7 @@ export default function AppDrawer({ navigation, children }) {
             <Ionicons name="menu" size={32} />
           </TouchableOpacity>
         )}
-      </SafeAreaInsetsContext.Consumer>
+      </SafeAreaInsetsContext.Consumer> */}
       {children}
     </Drawer>
   );
