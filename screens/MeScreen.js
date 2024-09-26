@@ -1,8 +1,14 @@
-import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-// import { SafeAreaView } from "react-native-safe-area-context";
 
-const MeScreen = () => {
+const MeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.topFrame}>
@@ -35,7 +41,7 @@ const MeScreen = () => {
           style={{
             backgroundColor: "transparent",
             alignSelf: "center",
-            top: 144,
+            top: 164,
           }}
         >
           <Image
@@ -147,67 +153,73 @@ const MeScreen = () => {
         </View>
 
         {/* Connected Device Shape */}
-        <View
-          style={{
-            backgroundColor: "transparent",
-            alignSelf: "center",
-            top: 144,
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Connect");
           }}
         >
-          <Image
-            source={require("@/assets/images/ProfilePage/Profile_Shape_2.png")}
-            resizeMode="contain"
-            style={{ marginBottom: 24 }}
-          ></Image>
-
-          {/* Connected Devices Text */}
-          <Text
+          <View
             style={{
-              color: "#F5F4F6",
-              fontFamily: "Sofia-semi-bold",
-              fontSize: 18,
-              position: "absolute",
-              top: 18,
-              left: 28,
               backgroundColor: "transparent",
-              marginBottom: 24,
+              alignSelf: "center",
+              top: 164,
             }}
           >
-            Connected Devices
-          </Text>
-          <Text
-            style={{
-              color: "#F5F4F6",
-              fontFamily: "Sofia-semi-bold",
-              fontSize: 26,
-              position: "absolute",
-              top: 48,
-              left: 28,
-              backgroundColor: "transparent",
-              marginBottom: 0,
-            }}
-          >
-            None
-          </Text>
+            <Image
+              source={require("@/assets/images/ProfilePage/Profile_Shape_2.png")}
+              resizeMode="contain"
+              style={{ marginBottom: 24 }}
+            ></Image>
 
-          <MaterialIcons
-            name="arrow-forward-ios"
-            size={24}
-            color="#F5F4F6"
-            style={{
-              position: "absolute",
-              top: 22,
-              left: 328,
-            }}
-          />
-        </View>
+            {/* Connected Devices Text */}
+            <Text
+              style={{
+                color: "#F5F4F6",
+                fontFamily: "Sofia-semi-bold",
+                fontSize: 18,
+                position: "absolute",
+                top: 18,
+                left: 28,
+                backgroundColor: "transparent",
+                marginBottom: 24,
+              }}
+            >
+              Connected Devices
+            </Text>
+            <Text
+              style={{
+                color: "#F5F4F6",
+                fontFamily: "Sofia-semi-bold",
+                fontSize: 26,
+                position: "absolute",
+                top: 48,
+                left: 28,
+                backgroundColor: "transparent",
+                marginBottom: 0,
+              }}
+            >
+              None
+            </Text>
+
+            <MaterialIcons
+              name="arrow-forward-ios"
+              size={24}
+              color="#F5F4F6"
+              style={{
+                position: "absolute",
+                top: 22,
+                left: 328,
+              }}
+            />
+          </View>
+        </TouchableOpacity>
 
         {/* Other Details Shape */}
         <View
           style={{
             backgroundColor: "transparent",
             alignSelf: "center",
-            top: 144,
+            top: 164,
           }}
         >
           <Image
@@ -349,7 +361,7 @@ const styles = StyleSheet.create({
   },
   topFrame: {
     position: "absolute",
-    top: -20,
+    top: 0,
     alignSelf: "center",
     backgroundColor: "transparent",
     zIndex: 2,
@@ -363,11 +375,9 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
   },
   profileImgContainer: {
-    // position: "absolute",
     height: 94,
     width: 94,
     borderRadius: 80,
-    // top: 37,
     top: -98.5,
     left: "71.7%",
     zIndex: 4,

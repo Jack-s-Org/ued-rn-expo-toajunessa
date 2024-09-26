@@ -1,7 +1,13 @@
-import { Text, View, Image, ScrollView, StyleSheet } from "react-native";
-// import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  Text,
+  View,
+  Image,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
-const SwimScreen = () => {
+const SwimScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.topFrame}>
@@ -19,6 +25,7 @@ const SwimScreen = () => {
           backgroundColor: "transparent",
           height: "100%",
           width: "100%",
+          top: 20,
         }}
       >
         {/* Background Scroll Shape Image */}
@@ -38,7 +45,6 @@ const SwimScreen = () => {
               resizeMode="contain"
               style={{
                 marginBottom: -160,
-                // top: -1316,
                 top: -1496,
                 backgroundColor: "transparent",
                 alignSelf: "center",
@@ -61,10 +67,6 @@ const SwimScreen = () => {
               source={require("@/assets/images/ActivitiesPage/75_Percent_Bar.png")}
               resizeMode="contain"
               style={{
-                // marginBottom: 0,
-                // top: -943,
-                // top: -720,
-                // left: 133,
                 alignSelf: "center",
                 width: 84,
                 height: "100%",
@@ -79,7 +81,6 @@ const SwimScreen = () => {
                 position: "absolute",
                 alignSelf: "center",
                 top: 36,
-                // left: 304,
                 backgroundColor: "transparent",
               }}
             >
@@ -109,24 +110,30 @@ const SwimScreen = () => {
         </View>
 
         {/* Workout 2 */}
-        <View
-          style={{
-            backgroundColor: "transparent",
-            position: "absolute",
-            alignSelf: "center",
-            top: 488,
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Main", { screen: "Video" });
           }}
         >
-          <Image
-            source={require("@/assets/images/SwimPage/MyWorkouts_2.png")}
-            resizeMode="contain"
+          <View
             style={{
-              marginBottom: 24,
-              width: 361,
-              height: 224,
+              backgroundColor: "transparent",
+              position: "absolute",
+              alignSelf: "center",
+              top: -1130,
             }}
-          ></Image>
-        </View>
+          >
+            <Image
+              source={require("@/assets/images/SwimPage/MyWorkouts_2.png")}
+              resizeMode="contain"
+              style={{
+                marginBottom: 24,
+                width: 361,
+                height: 224,
+              }}
+            ></Image>
+          </View>
+        </TouchableOpacity>
 
         {/* Workout 3 */}
         <View
@@ -202,7 +209,7 @@ const styles = StyleSheet.create({
   },
   topFrame: {
     position: "absolute",
-    top: -20,
+    top: 0,
     alignSelf: "center",
     backgroundColor: "transparent",
     zIndex: 2,
@@ -215,21 +222,6 @@ const styles = StyleSheet.create({
     left: 34,
     backgroundColor: "transparent",
   },
-  // profileImgContainer: {
-  //   // position: "absolute",
-  //   height: 94,
-  //   width: 94,
-  //   borderRadius: 80,
-  //   // top: 37,
-  //   top: -98.5,
-  //   left: "71.7%",
-  //   zIndex: 4,
-  // },
-  // profileImg: {
-  //   height: 94,
-  //   width: 94,
-  //   borderRadius: 80,
-  // },
 });
 
 export default SwimScreen;

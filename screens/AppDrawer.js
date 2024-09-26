@@ -1,24 +1,19 @@
 import { useState } from "react";
-import { TouchableOpacity } from "react-native";
-import { Drawer } from "react-native-drawer-layout";
-import {
-  SafeAreaInsetsContext,
-  SafeAreaView,
-} from "react-native-safe-area-context";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { View } from "react-native";
+import {} from "react-native-safe-area-context";
 import { DrawerItem } from "@react-navigation/drawer";
 
 export default function AppDrawer({ navigation, children }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <Drawer
+    <View
       open={open}
       onOpen={() => setOpen(true)}
       onClose={() => setOpen(false)}
       renderDrawerContent={() => {
         return (
-          <SafeAreaView>
+          <View>
             <DrawerItem
               label="Settings"
               onPress={() => {
@@ -31,7 +26,7 @@ export default function AppDrawer({ navigation, children }) {
                 navigation.replace("SignIn");
               }}
             />
-          </SafeAreaView>
+          </View>
         );
       }}
     >
@@ -54,6 +49,6 @@ export default function AppDrawer({ navigation, children }) {
         )}
       </SafeAreaInsetsContext.Consumer> */}
       {children}
-    </Drawer>
+    </View>
   );
 }

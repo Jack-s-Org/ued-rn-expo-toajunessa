@@ -1,10 +1,9 @@
 import RootNavigator from "./screens/RootNavigator";
 import "./gesture-handler";
 import { useFonts } from "expo-font";
-import createIconSetFromIcoMoon from "@expo/vector-icons/createIconSetFromIcoMoon";
-import { View, Image, Text } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import VideoPlayer from "@/components/VideoPlayer";
+// import createIconSetFromIcoMoon from "@expo/vector-icons/createIconSetFromIcoMoon";
+import { View } from "react-native";
+// import VideoPlayer from "@/components/VideoPlayer";
 
 // const Icon = createIconSetFromIcoMoon(
 //   require("@/assets/icomoon/selection.json"),

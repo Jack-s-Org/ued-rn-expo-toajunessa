@@ -1,7 +1,16 @@
-import { StyleSheet, Text, Image, View, ScrollView } from "react-native";
-// import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  StyleSheet,
+  Text,
+  Image,
+  View,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
+import { StarRatingDisplay } from "react-native-star-rating-widget";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
-const CoachScreen = () => {
+const CoachScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.topFrame}>
@@ -24,10 +33,8 @@ const CoachScreen = () => {
             backgroundColor: "#5145DE",
             borderRadius: 18,
             alignSelf: "center",
-            top: 120,
+            top: 140,
             left: 146,
-            // left: 146,
-            // top: -230,
           }}
         >
           <Text
@@ -37,9 +44,6 @@ const CoachScreen = () => {
               fontSize: "16px",
               alignSelf: "center",
               top: 4,
-              // position: "absolute",
-              // top: 10, // adjust the top position to your needs
-              // left: 22, // adjust the left position to your needs
               backgroundColor: "transparent",
             }}
           >
@@ -52,44 +56,161 @@ const CoachScreen = () => {
           style={{
             backgroundColor: "transparent",
             alignSelf: "center",
-            top: 124,
+            top: 144,
           }}
         >
           <Image
-            source={require("@/assets/images/CoachPage/Coach_Profile_1-1.png")}
+            source={require("@/assets/images/CoachPage/Coach_Profile_1.png")}
             resizeMode="contain"
-            style={{ marginBottom: 16 }}
+            style={styles.coachImg}
           ></Image>
+
+          <StarRatingDisplay
+            rating={4}
+            color="#FF00FF"
+            starSize={18}
+            style={styles.starRating}
+          />
+
+          <Text style={styles.coachText}>Chris Subramaniam</Text>
+
+          <FontAwesome
+            name="dollar"
+            size={13}
+            color="#F5F4F6"
+            style={{
+              position: "absolute",
+              top: 113,
+              left: 162,
+            }}
+          />
+
+          <Text style={styles.coachPayText}>MYR 50/ Per Hour</Text>
+
+          <FontAwesome6
+            name="location-dot"
+            size={12}
+            color="#F5F4F6"
+            style={{
+              position: "absolute",
+              top: 134,
+              left: 161,
+            }}
+          />
+
+          <Text style={styles.coachLocationText}>
+            Bukit Jalil Aquatic Center
+          </Text>
         </View>
 
         {/* Coach 2 */}
-        <View
-          style={{
-            backgroundColor: "transparent",
-            alignSelf: "center",
-            top: 124,
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Main", { screen: "CoachProfile" });
           }}
         >
-          <Image
-            source={require("@/assets/images/CoachPage/Coach_Profile_2.png")}
-            resizeMode="contain"
-            style={{ marginBottom: 16 }}
-          ></Image>
-        </View>
+          <View
+            style={{
+              backgroundColor: "transparent",
+              alignSelf: "center",
+              top: 144,
+            }}
+          >
+            <Image
+              source={require("@/assets/images/CoachPage/Coach_Profile_2.png")}
+              resizeMode="contain"
+              style={styles.coachImg}
+            ></Image>
+
+            <StarRatingDisplay
+              rating={5}
+              color="#FF00FF"
+              starSize={18}
+              style={styles.starRating}
+            />
+
+            <Text style={styles.coachText2}>Jessie Smith</Text>
+
+            <FontAwesome
+              name="dollar"
+              size={13}
+              color="#F5F4F6"
+              style={{
+                position: "absolute",
+                top: 113,
+                left: 162,
+              }}
+            />
+
+            <Text style={styles.coachPayText}>MYR 35/ Per Hour</Text>
+
+            <FontAwesome6
+              name="location-dot"
+              size={12}
+              color="#F5F4F6"
+              style={{
+                position: "absolute",
+                top: 134,
+                left: 161,
+              }}
+            />
+
+            <Text style={styles.coachLocationText}>
+              National Aquatic Centre
+            </Text>
+          </View>
+        </TouchableOpacity>
 
         {/* Coach 3 */}
         <View
           style={{
             backgroundColor: "transparent",
             alignSelf: "center",
-            top: 124,
+            top: 144,
           }}
         >
           <Image
             source={require("@/assets/images/CoachPage/Coach_Profile_3.png")}
             resizeMode="contain"
-            style={{ marginBottom: 16 }}
+            style={styles.coachImg}
           ></Image>
+
+          <StarRatingDisplay
+            rating={3.5}
+            color="#FF00FF"
+            starSize={18}
+            style={styles.starRating}
+          />
+
+          <Text style={styles.coachText2}>Theo Tan</Text>
+
+          <FontAwesome
+            name="dollar"
+            size={13}
+            color="#F5F4F6"
+            style={{
+              position: "absolute",
+              top: 113,
+              left: 162,
+            }}
+          />
+
+          <Text style={styles.coachPayText}>MYR 45/ Per Hour</Text>
+
+          <FontAwesome6
+            name="location-dot"
+            size={12}
+            color="#F5F4F6"
+            style={{
+              position: "absolute",
+              top: 134,
+              left: 161,
+            }}
+          />
+
+          <Text style={styles.coachLocationText}>
+            Endah Regal Swimming Pool
+          </Text>
         </View>
 
         {/* Coach 4 */}
@@ -97,14 +218,49 @@ const CoachScreen = () => {
           style={{
             backgroundColor: "transparent",
             alignSelf: "center",
-            top: 124,
+            top: 144,
           }}
         >
           <Image
             source={require("@/assets/images/CoachPage/Coach_Profile_4.png")}
             resizeMode="contain"
-            style={{ marginBottom: 16 }}
+            style={styles.coachImg}
           ></Image>
+
+          <StarRatingDisplay
+            rating={3}
+            color="#FF00FF"
+            starSize={18}
+            style={styles.starRating}
+          />
+
+          <Text style={styles.coachText2}>Jayden Chong</Text>
+
+          <FontAwesome
+            name="dollar"
+            size={13}
+            color="#F5F4F6"
+            style={{
+              position: "absolute",
+              top: 113,
+              left: 162,
+            }}
+          />
+
+          <Text style={styles.coachPayText}>MYR 60/ Per Hour</Text>
+
+          <FontAwesome6
+            name="location-dot"
+            size={12}
+            color="#F5F4F6"
+            style={{
+              position: "absolute",
+              top: 134,
+              left: 161,
+            }}
+          />
+
+          <Text style={styles.coachLocationText}>ZEN Pools</Text>
         </View>
 
         {/* Coach 5 */}
@@ -112,14 +268,49 @@ const CoachScreen = () => {
           style={{
             backgroundColor: "transparent",
             alignSelf: "center",
-            top: 124,
+            top: 144,
           }}
         >
           <Image
             source={require("@/assets/images/CoachPage/Coach_Profile_5.png")}
             resizeMode="contain"
-            style={{ marginBottom: 16 }}
+            style={styles.coachImg}
           ></Image>
+
+          <StarRatingDisplay
+            rating={4.5}
+            color="#FF00FF"
+            starSize={18}
+            style={styles.starRating}
+          />
+
+          <Text style={styles.coachText2}>Rachel Chen</Text>
+
+          <FontAwesome
+            name="dollar"
+            size={13}
+            color="#F5F4F6"
+            style={{
+              position: "absolute",
+              top: 113,
+              left: 162,
+            }}
+          />
+
+          <Text style={styles.coachPayText}>MYR 40/ Per Hour</Text>
+
+          <FontAwesome6
+            name="location-dot"
+            size={12}
+            color="#F5F4F6"
+            style={{
+              position: "absolute",
+              top: 134,
+              left: 161,
+            }}
+          />
+
+          <Text style={styles.coachLocationText}>National Aquatic Centre</Text>
         </View>
 
         {/* Coach 6 */}
@@ -127,14 +318,51 @@ const CoachScreen = () => {
           style={{
             backgroundColor: "transparent",
             alignSelf: "center",
-            top: 124,
+            top: 144,
           }}
         >
           <Image
             source={require("@/assets/images/CoachPage/Coach_Profile_6.png")}
             resizeMode="contain"
-            style={{ marginBottom: 264 }}
+            style={styles.coachImgLast}
           ></Image>
+
+          <StarRatingDisplay
+            rating={2.5}
+            color="#FF00FF"
+            starSize={18}
+            style={styles.starRating}
+          />
+
+          <Text style={styles.coachText2}>Benji Wong</Text>
+
+          <FontAwesome
+            name="dollar"
+            size={13}
+            color="#F5F4F6"
+            style={{
+              position: "absolute",
+              top: 113,
+              left: 162,
+            }}
+          />
+
+          <Text style={styles.coachPayText1}>MYR 50/ Per Hour</Text>
+
+          <FontAwesome6
+            name="location-dot"
+            size={12}
+            color="#F5F4F6"
+            style={{
+              position: "absolute",
+              top: 134,
+              left: 161,
+            }}
+          />
+
+          <Text style={styles.coachLocationText1}>
+            Bukit Jalil Aquatic Center
+          </Text>
         </View>
       </ScrollView>
     </View>
@@ -151,9 +379,8 @@ const styles = StyleSheet.create({
   },
   topFrame: {
     position: "absolute",
-    top: -20,
+    top: 0,
     alignSelf: "center",
-    // height: 130,
     backgroundColor: "transparent",
     zIndex: 2,
   },
@@ -164,6 +391,75 @@ const styles = StyleSheet.create({
     top: -58,
     left: 34,
     backgroundColor: "transparent",
+  },
+  coachImg: {
+    marginBottom: 16,
+    width: 364,
+    height: 158,
+  },
+  coachImgLast: {
+    marginBottom: 284,
+    width: 364,
+    height: 158,
+  },
+  starRating: {
+    position: "absolute",
+    left: 156,
+    top: 72,
+  },
+  coachText: {
+    fontFamily: "Sofia-semi-bold",
+    fontSize: 18,
+    color: "#F5F4F6",
+    position: "absolute",
+    alignSelf: "center",
+    top: 48,
+    left: 162,
+  },
+  coachText2: {
+    fontFamily: "Sofia-semi-bold",
+    fontSize: 18,
+    color: "#F5F4F6",
+    position: "absolute",
+    alignSelf: "center",
+    top: 48,
+    left: 164,
+  },
+  coachPayText: {
+    fontFamily: "Sofia-semi-bold",
+    fontSize: 12,
+    color: "#F5F4F6",
+    position: "absolute",
+    alignSelf: "center",
+    bottom: 46,
+    left: 178,
+  },
+  coachLocationText: {
+    fontFamily: "Sofia-semi-bold",
+    fontSize: 12,
+    color: "#F5F4F6",
+    position: "absolute",
+    alignSelf: "center",
+    bottom: 26,
+    left: 178,
+  },
+  coachPayText1: {
+    fontFamily: "Sofia-semi-bold",
+    fontSize: 12,
+    color: "#F5F4F6",
+    position: "absolute",
+    alignSelf: "center",
+    bottom: 316,
+    left: 178,
+  },
+  coachLocationText1: {
+    fontFamily: "Sofia-semi-bold",
+    fontSize: 12,
+    color: "#F5F4F6",
+    position: "absolute",
+    alignSelf: "center",
+    bottom: 296,
+    left: 178,
   },
 });
 

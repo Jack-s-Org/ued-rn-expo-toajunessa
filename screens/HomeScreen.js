@@ -1,9 +1,15 @@
-import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
-// import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   return (
     <View style={homeScreenStyles.container}>
       {/* Top Frame */}
@@ -13,9 +19,8 @@ const HomeScreen = () => {
           top: 40,
           left: 0,
           right: 0,
-          // height: 200, // adjust the height to your needs
           backgroundColor: "transparent",
-          zIndex: 2, // make sure the top frame is on top of the scroll view
+          zIndex: 2,
         }}
       >
         <View>
@@ -52,9 +57,6 @@ const HomeScreen = () => {
         style={{
           width: "100%",
           height: "100%",
-          // flexDirection: "column",
-          // paddingBottom: 24,
-          // justifyContent: "space-between",
         }}
       >
         <ScrollView
@@ -74,8 +76,8 @@ const HomeScreen = () => {
                 fontFamily: "Sofia-bold",
                 fontSize: "42px",
                 position: "absolute",
-                top: 36, // adjust the top position to your needs
-                left: "38%", // adjust the left position to your needs
+                top: 36,
+                left: "38%",
                 backgroundColor: "transparent",
               }}
             >
@@ -87,8 +89,8 @@ const HomeScreen = () => {
                 fontFamily: "Sofia-semi-bold",
                 fontSize: "20px",
                 position: "absolute",
-                top: 23, // adjust the top position to your needs
-                left: 304, // adjust the left position to your needs
+                top: 23,
+                left: 304,
                 backgroundColor: "transparent",
                 textAlign: "center",
               }}
@@ -117,8 +119,8 @@ const HomeScreen = () => {
                   fontFamily: "Sofia-bold",
                   fontSize: "26px",
                   position: "absolute",
-                  top: 6, // adjust the top position to your needs
-                  left: 26, // adjust the left position to your needs
+                  top: 6,
+                  left: 26,
                   backgroundColor: "transparent",
                   textAlign: "center",
                 }}
@@ -132,8 +134,8 @@ const HomeScreen = () => {
                   fontFamily: "Sofia-medium",
                   fontSize: "14px",
                   position: "absolute",
-                  top: 38, // adjust the top position to your needs
-                  left: 22, // adjust the left position to your needs
+                  top: 38,
+                  left: 22,
                   backgroundColor: "transparent",
                   textAlign: "center",
                 }}
@@ -155,198 +157,220 @@ const HomeScreen = () => {
           </View>
 
           {/* Full Body Workout Chart */}
-          <View
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "transparent",
-              marginBottom: 24,
-              top: 72,
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("Main", { screen: "Statistics" });
             }}
           >
-            <Image
-              source={require("@/assets/images/HomePage/FullBodyWorkout_Chart_2.png")}
-              resizeMode="contain"
-            ></Image>
-            <Text
+            <View
               style={{
-                color: "#F5F4F6",
-                fontFamily: "Sofia-semi-bold",
-                fontSize: "14px",
-                top: -112, // adjust the top position to your needs
-                left: -104, // adjust the left position to your needs
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "transparent",
+                marginBottom: 24,
+                top: 112,
               }}
             >
-              Full Body Workout
-            </Text>
-            <MaterialIcons
-              name="arrow-forward-ios"
-              size={16}
-              color="#F5F4F6"
-              style={{
-                position: "absolute",
-                top: 16,
-                left: 320,
-              }}
-            />
-          </View>
+              <Image
+                source={require("@/assets/images/HomePage/FullBodyWorkout_Chart_2.png")}
+                resizeMode="contain"
+              ></Image>
+
+              <Text
+                style={{
+                  color: "#F5F4F6",
+                  fontFamily: "Sofia-semi-bold",
+                  fontSize: "14px",
+                  top: -112,
+                  left: -104,
+                }}
+              >
+                Full Body Workout
+              </Text>
+
+              <MaterialIcons
+                name="arrow-forward-ios"
+                size={16}
+                color="#F5F4F6"
+                style={{
+                  position: "absolute",
+                  top: 16,
+                  left: 340,
+                }}
+              />
+            </View>
+          </TouchableOpacity>
 
           {/* Calories Shape */}
-          <View
-            style={{
-              alignItems: "center",
-              left: 16,
-              backgroundColor: "transparent",
-              width: "34%",
-              top: 48,
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("Main", { screen: "Statistics" });
             }}
           >
-            <Image
-              source={require("@/assets/images/HomePage/Calories_Shape_1.png")}
-              resizeMode="contain"
-              style={{ marginBottom: -24 }}
-            ></Image>
-
-            <Text
+            <View
               style={{
-                color: "#F5F4F6",
-                fontFamily: "Sofia-bold",
-                fontSize: "30px",
-                top: -100, // adjust the top position to your needs
-                left: 0, // adjust the left position to your needs
+                alignItems: "center",
+                left: 16,
                 backgroundColor: "transparent",
+                width: "34%",
+                top: 88,
               }}
             >
-              120
-            </Text>
+              <Image
+                source={require("@/assets/images/HomePage/Calories_Shape_1.png")}
+                resizeMode="contain"
+                style={{ marginBottom: -24 }}
+              ></Image>
 
-            <Text
-              style={{
-                color: "#F5F4F6",
-                fontFamily: "Sofia-semi-bold",
-                fontSize: "14px",
-                top: -56, // adjust the top position to your needs
-                left: -31, // adjust the left position to your needs
-                backgroundColor: "transparent",
-              }}
-            >
-              Calories
-            </Text>
-          </View>
+              <Text
+                style={{
+                  color: "#F5F4F6",
+                  fontFamily: "Sofia-bold",
+                  fontSize: "30px",
+                  top: -100,
+                  left: 0,
+                  backgroundColor: "transparent",
+                }}
+              >
+                120
+              </Text>
+
+              <Text
+                style={{
+                  color: "#F5F4F6",
+                  fontFamily: "Sofia-semi-bold",
+                  fontSize: "14px",
+                  top: -56,
+                  left: -31,
+                  backgroundColor: "transparent",
+                }}
+              >
+                Calories
+              </Text>
+            </View>
+          </TouchableOpacity>
 
           {/* Distance Shape */}
-          <View
-            style={{
-              alignSelf: "center",
-              width: "34%",
-              left: -30,
-              top: -122,
-              // justifyContent: "center",
-              backgroundColor: "transparent",
-              marginBottom: -184,
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("Main", { screen: "Statistics" });
             }}
           >
-            <Image
-              source={require("@/assets/images/HomePage/Distance_Shape_1.png")}
-              resizeMode="contain"
-              style={{ marginBottom: 30 }}
-            ></Image>
-
-            <Text
+            <View
               style={{
-                color: "#F5F4F6",
-                fontFamily: "Sofia-semi-bold",
-                fontSize: "14px",
-                position: "absolute",
-                top: 25, // adjust the top position to your needs
-                left: 70, // adjust the left position to your needs
+                alignSelf: "center",
+                width: "34%",
+                left: -30,
+                top: -82,
                 backgroundColor: "transparent",
+                marginBottom: -184,
               }}
             >
-              Distance
-            </Text>
+              <Image
+                source={require("@/assets/images/HomePage/Distance_Shape_1.png")}
+                resizeMode="contain"
+                style={{ marginBottom: 30 }}
+              ></Image>
 
-            <Text
-              style={{
-                color: "#F5F4F6",
-                fontFamily: "Sofia-bold",
-                fontSize: "30px",
-                position: "absolute",
-                top: 88, // adjust the top position to your needs
-                left: 40, // adjust the left position to your needs
-                backgroundColor: "transparent",
-              }}
-            >
-              300
-            </Text>
-          </View>
+              <Text
+                style={{
+                  color: "#F5F4F6",
+                  fontFamily: "Sofia-semi-bold",
+                  fontSize: "14px",
+                  position: "absolute",
+                  top: 25,
+                  left: 70,
+                  backgroundColor: "transparent",
+                }}
+              >
+                Distance
+              </Text>
+
+              <Text
+                style={{
+                  color: "#F5F4F6",
+                  fontFamily: "Sofia-bold",
+                  fontSize: "30px",
+                  position: "absolute",
+                  top: 88,
+                  left: 40,
+                  backgroundColor: "transparent",
+                }}
+              >
+                300
+              </Text>
+            </View>
+          </TouchableOpacity>
 
           {/* Speed Shape */}
-          <View
-            style={{
-              alignSelf: "center",
-              left: 111,
-              // top: -339,
-              top: -109,
-              // justifyContent: "center",
-              backgroundColor: "transparent",
-              marginBottom: -168,
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("Main", { screen: "Statistics" });
             }}
           >
-            <Image
-              source={require("@/assets/images/HomePage/Speed_Shape_1.png")}
-              resizeMode="contain"
-              style={{ marginBottom: 24 }}
-            ></Image>
+            <View
+              style={{
+                alignSelf: "center",
+                left: 111,
+                top: -79,
+                backgroundColor: "transparent",
+                marginBottom: -168,
+              }}
+            >
+              <Image
+                source={require("@/assets/images/HomePage/Speed_Shape_1.png")}
+                resizeMode="contain"
+                style={{ marginBottom: 24 }}
+              ></Image>
 
-            <Text
-              style={{
-                color: "#F5F4F6",
-                fontFamily: "Sofia-bold",
-                fontSize: "30px",
-                position: "absolute",
-                top: 19, // adjust the top position to your needs
-                left: 48, // adjust the left position to your needs
-                backgroundColor: "transparent",
-              }}
-            >
-              100
-            </Text>
-            <Text
-              style={{
-                color: "#F5F4F6",
-                fontFamily: "Sofia-semi-bold",
-                fontSize: "14px",
-                position: "absolute",
-                top: 100, // adjust the top position to your needs
-                left: 17, // adjust the left position to your needs
-                backgroundColor: "transparent",
-              }}
-            >
-              Speed
-            </Text>
+              <Text
+                style={{
+                  color: "#F5F4F6",
+                  fontFamily: "Sofia-bold",
+                  fontSize: "30px",
+                  position: "absolute",
+                  top: 19,
+                  left: 48,
+                  backgroundColor: "transparent",
+                }}
+              >
+                100
+              </Text>
+              <Text
+                style={{
+                  color: "#F5F4F6",
+                  fontFamily: "Sofia-semi-bold",
+                  fontSize: "14px",
+                  position: "absolute",
+                  top: 100,
+                  left: 17,
+                  backgroundColor: "transparent",
+                }}
+              >
+                Speed
+              </Text>
 
-            <Text
-              style={{
-                color: "#F5F4F6",
-                fontFamily: "Sofia-bold",
-                fontSize: "26px",
-                position: "absolute",
-                top: 92, // adjust the top position to your needs
-                left: 87, // adjust the left position to your needs
-                backgroundColor: "transparent",
-              }}
-            >
-              m/s
-            </Text>
-          </View>
+              <Text
+                style={{
+                  color: "#F5F4F6",
+                  fontFamily: "Sofia-bold",
+                  fontSize: "26px",
+                  position: "absolute",
+                  top: 92,
+                  left: 87,
+                  backgroundColor: "transparent",
+                }}
+              >
+                m/s
+              </Text>
+            </View>
+          </TouchableOpacity>
 
           {/* Popular Workouts Shape */}
           <View
             style={{
               alignItems: "center",
-              // top: -338,
-              top: 48,
+              top: 88,
               marginBottom: 24,
               justifyContent: "center",
               backgroundColor: "transparent",
@@ -357,42 +381,57 @@ const HomeScreen = () => {
               resizeMode="contain"
               style={{ marginBottom: -2 }}
             ></Image>
+
             <Text
               style={{
                 color: "#F5F4F6",
                 fontFamily: "Sofia-bold",
                 fontSize: "19px",
                 position: "absolute",
-                top: 26, // adjust the top position to your needs
-                left: 30, // adjust the left position to your needs
+                top: 26,
+                left: 30,
                 backgroundColor: "transparent",
               }}
             >
               Popular Programs
             </Text>
-            <Text
-              style={{
-                color: "#F5F4F6",
-                fontFamily: "Sofia-medium",
-                fontSize: "12px",
-                position: "absolute",
-                top: 32, // adjust the top position to your needs
-                left: 300, // adjust the left position to your needs
-                backgroundColor: "transparent",
+
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("Main", { screen: "Programs" });
               }}
             >
-              View All
-            </Text>
-            <MaterialIcons
-              name="arrow-forward-ios"
-              size={12}
-              color="#0E0330"
-              style={{
-                position: "absolute",
-                top: 32,
-                left: 348,
-              }}
-            />
+              <View
+                style={{
+                  position: "absolute",
+                  bottom: 350,
+                  left: 106,
+                }}
+              >
+                <Text
+                  style={{
+                    color: "#F5F4F6",
+                    fontFamily: "Sofia-medium",
+                    fontSize: "12px",
+                    position: "absolute",
+                    backgroundColor: "transparent",
+                  }}
+                >
+                  View All
+                </Text>
+
+                <MaterialIcons
+                  name="arrow-forward-ios"
+                  size={12}
+                  color="#F5F4F6"
+                  style={{
+                    position: "absolute",
+                    left: 44,
+                    top: 1,
+                  }}
+                />
+              </View>
+            </TouchableOpacity>
           </View>
 
           {/* Horizontal ScrollView for Popular Workouts */}
@@ -400,8 +439,8 @@ const HomeScreen = () => {
             style={{
               height: 200,
               backgroundColor: "transparent",
-              top: -284,
-              marginBottom: -198,
+              top: -244,
+              marginBottom: -158,
             }}
           >
             <ScrollView
@@ -429,8 +468,8 @@ const HomeScreen = () => {
                     fontFamily: "Sofia-semi-bold",
                     fontSize: "16px",
                     position: "absolute",
-                    top: 143, // adjust the top position to your needs
-                    left: 22, // adjust the left position to your needs
+                    top: 143,
+                    left: 22,
                     backgroundColor: "transparent",
                   }}
                 >
@@ -451,8 +490,8 @@ const HomeScreen = () => {
                     fontFamily: "Sofia-semi-bold",
                     fontSize: "16px",
                     position: "absolute",
-                    top: 143, // adjust the top position to your needs
-                    left: 22, // adjust the left position to your needs
+                    top: 143,
+                    left: 22,
                     backgroundColor: "transparent",
                   }}
                 >
@@ -473,8 +512,8 @@ const HomeScreen = () => {
                     fontFamily: "Sofia-semi-bold",
                     fontSize: "16px",
                     position: "absolute",
-                    top: 143, // adjust the top position to your needs
-                    left: 22, // adjust the left position to your needs
+                    top: 143,
+                    left: 22,
                     backgroundColor: "transparent",
                   }}
                 >
@@ -495,8 +534,8 @@ const HomeScreen = () => {
                     fontFamily: "Sofia-semi-bold",
                     fontSize: "16px",
                     position: "absolute",
-                    top: 143, // adjust the top position to your needs
-                    left: 22, // adjust the left position to your needs
+                    top: 143,
+                    left: 22,
                     backgroundColor: "transparent",
                   }}
                 >
@@ -517,8 +556,8 @@ const HomeScreen = () => {
                     fontFamily: "Sofia-semi-bold",
                     fontSize: "16px",
                     position: "absolute",
-                    top: 143, // adjust the top position to your needs
-                    left: 22, // adjust the left position to your needs
+                    top: 143,
+                    left: 22,
                     backgroundColor: "transparent",
                   }}
                 >
@@ -539,8 +578,8 @@ const HomeScreen = () => {
                     fontFamily: "Sofia-semi-bold",
                     fontSize: "16px",
                     position: "absolute",
-                    top: 143, // adjust the top position to your needs
-                    left: 22, // adjust the left position to your needs
+                    top: 143,
+                    left: 22,
                     backgroundColor: "transparent",
                   }}
                 >
@@ -561,25 +600,22 @@ const homeScreenStyles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    // backgroundColor: "#0E0230",
     backgroundColor: "#0E0230",
   },
   headingStyle: {
     color: "#F5F4F6",
     fontFamily: "Sofia-bold-italic",
     fontSize: "28px",
-    // position: "absolute",
-    top: 62, // adjust the top position to your needs
-    left: 26, // adjust the left position to your needs
+    top: 62,
+    left: 26,
     backgroundColor: "transparent",
   },
   subheadingStyle: {
     color: "#F5F4F6",
     fontFamily: "Sofia-regular",
     fontSize: "16px",
-    // position: "relative",
-    top: 80, // adjust the top position to your needs
-    left: 28, // adjust the left position to your needs
+    top: 80,
+    left: 28,
     backgroundColor: "transparent",
   },
   profileImgContainer: {
@@ -597,34 +633,11 @@ const homeScreenStyles = StyleSheet.create({
     borderRadius: 80,
   },
   lastSwimContainer: {
-    // position: "absolute",
-    // height: "100%",
-    // width: "100%",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 24,
     top: 148,
-    // left: 0,
   },
-  // percentageStyle: {
-  //   color: "#F5F4F6",
-  //   fontFamily: "Sofia-bold",
-  //   fontSize: "42px",
-  //   position: "absolute",
-  //   top: 36, // adjust the top position to your needs
-  //   left: "38%", // adjust the left position to your needs
-  //   backgroundColor: "transparent",
-  // },
-  // lastSwimeStyle: {
-  //   color: "#F5F4F6",
-  //   fontFamily: "Sofia-semi-bold",
-  //   fontSize: "20px",
-  //   position: "absolute",
-  //   top: 23, // adjust the top position to your needs
-  //   left: 304, // adjust the left position to your needs
-  //   backgroundColor: "transparent",
-  //   textAlign: "center",
-  // },
 });
 
 export default HomeScreen;
